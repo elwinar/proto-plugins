@@ -1,0 +1,27 @@
+# https://github.com/ory/kratos
+name = "kratos"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/ory/kratos"
+
+[platform.linux]
+download-file = "kratos_{version}-linux_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+
+[platform.macos]
+download-file = "kratos_{version}-macOS_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+
+[platform.windows]
+download-file = "kratos_{version}-windows_{arch}.zip"
+exe-path = "kratos.exe"
+checksum-file = "checksums.txt"
+
+[install]
+download-url = "https://github.com/ory/kratos/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/ory/kratos/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "64bit"

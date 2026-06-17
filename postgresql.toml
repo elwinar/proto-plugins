@@ -1,0 +1,28 @@
+# https://github.com/theseus-rs/postgresql-binaries
+# Provides the full PostgreSQL installation (server + client tools).
+# Proto shims `psql` as the primary binary; the Dockerfile symlinks the whole
+# bin/ directory to /usr/local/bin/ to expose pg_dump, pg_restore, etc.
+name = "postgresql"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/theseus-rs/postgresql-binaries"
+
+[platform.linux]
+exe-path = "postgresql-{version}-{arch}-unknown-linux-{libc}/bin/psql"
+download-file = "postgresql-{version}-{arch}-unknown-linux-{libc}.tar.gz"
+checksum-file = "postgresql-{version}-{arch}-unknown-linux-{libc}.tar.gz.sha256"
+
+[platform.macos]
+exe-path = "postgresql-{version}-{arch}-apple-darwin/bin/psql"
+download-file = "postgresql-{version}-{arch}-apple-darwin.tar.gz"
+checksum-file = "postgresql-{version}-{arch}-apple-darwin.tar.gz.sha256"
+
+[platform.windows]
+exe-path = "postgresql-{version}-{arch}-pc-windows-msvc/bin/psql.exe"
+download-file = "postgresql-{version}-{arch}-pc-windows-msvc.zip"
+checksum-file = "postgresql-{version}-{arch}-pc-windows-msvc.zip.sha256"
+
+[install]
+download-url = "https://github.com/theseus-rs/postgresql-binaries/releases/download/{version}/{download_file}"
+checksum-url = "https://github.com/theseus-rs/postgresql-binaries/releases/download/{version}/{checksum_file}"

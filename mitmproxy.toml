@@ -1,0 +1,27 @@
+# https://mitmproxy.org
+# Binaries distributed at downloads.mitmproxy.org (not GitHub releases).
+# Note: macOS arm64 requires "arm64" in the URL while Linux arm64 requires "aarch64";
+#       proto has no per-platform arch mapping, so macOS arm64 is unsupported here.
+#       macOS users on M-series chips should install via brew instead.
+name = "mitmproxy"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/mitmproxy/mitmproxy"
+
+[platform.linux]
+download-file = "mitmproxy-{version}-linux-{arch}.tar.gz"
+
+[platform.macos]
+download-file = "mitmproxy-{version}-macos-{arch}.tar.gz"
+
+[platform.windows]
+download-file = "mitmproxy-{version}-windows-{arch}.zip"
+exe-path = "mitmproxy.exe"
+
+[install]
+download-url = "https://downloads.mitmproxy.org/{version}/{download_file}"
+
+[install.arch]
+aarch64 = "aarch64"
+x86_64 = "x86_64"

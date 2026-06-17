@@ -1,0 +1,28 @@
+# https://github.com/txn2/kubefwd
+name = "kubefwd"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/txn2/kubefwd"
+
+[platform.linux]
+download-file = "kubefwd_Linux_{arch}.tar.gz"
+checksum-file = "kubefwd_checksums.txt"
+
+[platform.macos]
+download-file = "kubefwd_Darwin_{arch}.tar.gz"
+checksum-file = "kubefwd_checksums.txt"
+
+[platform.windows]
+download-file = "kubefwd_Windows_{arch}.zip"
+exe-path = "kubefwd.exe"
+checksum-file = "kubefwd_checksums.txt"
+
+[install]
+download-url = "https://github.com/txn2/kubefwd/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/txn2/kubefwd/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x86_64"
+x86 = "i386"

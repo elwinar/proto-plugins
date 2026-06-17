@@ -1,0 +1,30 @@
+# https://github.com/jqlang/jq
+# Tags use jq-{version} prefix instead of v{version}.
+name = "jq"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/jqlang/jq"
+version-pattern = "^jq-((?<major>[0-9]+)\\.(?<minor>[0-9]+)\\.(?<patch>[0-9]+))"
+
+[platform.linux]
+download-file = "jq-linux-{arch}"
+checksum-file = "sha256sum.txt"
+
+[platform.macos]
+download-file = "jq-macos-{arch}"
+checksum-file = "sha256sum.txt"
+
+[platform.windows]
+download-file = "jq-windows-{arch}.exe"
+exe-path = "jq-windows-{arch}.exe"
+checksum-file = "sha256sum.txt"
+
+[install]
+download-url = "https://github.com/jqlang/jq/releases/download/jq-{version}/{download_file}"
+checksum-url = "https://github.com/jqlang/jq/releases/download/jq-{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"

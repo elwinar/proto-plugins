@@ -1,0 +1,29 @@
+# https://cloud.google.com/sdk/docs/install
+# Release naming: google-cloud-sdk-{version}-{os}-{arch}.tar.gz
+# No git-based version resolution; specify the version explicitly in .prototools.
+name = "gcloud"
+type = "cli"
+
+[platform.linux]
+download-file = "google-cloud-sdk-{version}-linux-{arch}.tar.gz"
+exe-path = "google-cloud-sdk/bin/gcloud"
+
+[platform.macos]
+download-file = "google-cloud-sdk-{version}-darwin-{arch}.tar.gz"
+exe-path = "google-cloud-sdk/bin/gcloud"
+
+[platform.windows]
+download-file = "google-cloud-sdk-{version}-windows-{arch}.zip"
+exe-path = "google-cloud-sdk/bin/gcloud.cmd"
+
+[install]
+download-url = "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/{download_file}"
+
+[install.arch]
+aarch64 = "arm"
+x86_64 = "x86_64"
+
+# Version manifest is maintained in this repo at proto-plugins/gcloud-versions.json.
+# Add new versions there as they are released.
+[resolve]
+manifest-url = "https://raw.githubusercontent.com/elwinar/proto-plugins/main/gcloud-versions.json"

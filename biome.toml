@@ -1,3 +1,4 @@
+# Copied from https://github.com/Phault/proto-toml-plugins/blob/main/biome/plugin.toml
 name = "Biome"
 type = "cli"
 
@@ -15,7 +16,7 @@ download-file = "biome-darwin-{arch}"
 download-file = "biome-win32-{arch}.exe"
 
 [install]
-download-url = "https://github.com/biomejs/biome/releases/download/%40biomejs%2Fbiome%40{version}/{download_file}"
+download-url = "https://github.com/biomejs/biome/releases/download/%40biomejs/biome%40{version}/{download_file}"
 unpack = false
 
 [install.arch]
