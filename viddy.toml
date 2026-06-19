@@ -1,0 +1,27 @@
+# https://github.com/sachaos/viddy
+name = "viddy"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/sachaos/viddy"
+
+[platform.linux]
+download-file = "viddy-v{version}-linux-{arch}.tar.gz"
+checksum-file = "viddy-v{version}-linux-{arch}.sha256"
+
+[platform.macos]
+download-file = "viddy-v{version}-macos-{arch}.tar.gz"
+checksum-file = "viddy-v{version}-macos-{arch}.sha256"
+
+[platform.windows]
+download-file = "viddy-v{version}-windows-{arch}.tar.gz"
+exe-path = "viddy.exe"
+checksum-file = "viddy-v{version}-windows-{arch}.sha256"
+
+[install]
+download-url = "https://github.com/sachaos/viddy/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/sachaos/viddy/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x86_64"
