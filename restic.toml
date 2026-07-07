@@ -1,0 +1,23 @@
+# https://github.com/restic/restic
+name = "restic"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/restic/restic"
+
+[platform.linux]
+download-file = "restic_{version}_linux_{arch}.bz2"
+
+[platform.macos]
+download-file = "restic_{version}_darwin_{arch}.bz2"
+
+[platform.windows]
+download-file = "restic_{version}_windows_{arch}.zip"
+exe-path = "restic.exe"
+
+[install]
+download-url = "https://github.com/restic/restic/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
