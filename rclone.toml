@@ -1,0 +1,24 @@
+# https://github.com/rclone/rclone
+name = "rclone"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/rclone/rclone"
+
+[platform.linux]
+download-file = "rclone-v{version}-linux-{arch}.zip"
+exe-path = "rclone-v{version}-linux-{arch}/rclone"
+
+[platform.macos]
+download-file = "rclone-v{version}-osx-{arch}.zip"
+exe-path = "rclone-v{version}-linux-{arch}/rclone"
+
+[platform.windows]
+download-file = "rclone-v{version}-windows-{arch}.zip"
+exe-path = "rclone-v{version}-linux-{arch}/rclone"
+
+[install]
+download-url = "https://github.com/rclone/rclone/releases/download/v{version}/{download_file}"
+
+[install.arch]
+x86_64 = "amd64"
