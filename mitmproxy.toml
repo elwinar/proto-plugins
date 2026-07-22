@@ -14,6 +14,7 @@ download-file = "mitmproxy-{version}-linux-{arch}.tar.gz"
 
 [platform.macos]
 download-file = "mitmproxy-{version}-macos-{arch}.tar.gz"
+exe-path = "mitmproxy.app/Contents/MacOS/mitmproxy"
 
 [platform.windows]
 download-file = "mitmproxy-{version}-windows-{arch}.zip"
@@ -25,3 +26,6 @@ download-url = "https://downloads.mitmproxy.org/{version}/{download_file}"
 [install.arch]
 aarch64 = "aarch64"
 x86_64 = "x86_64"
+
+[platform.macos.arch]
+aarch64 = "arm64"

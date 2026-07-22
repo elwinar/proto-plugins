@@ -1,0 +1,41 @@
+# https://developer.chrome.com/blog/chrome-for-testing
+# Chrome for Testing publishes no git tags and its version manifest is a nested
+# object (proto's manifest-version-key only reads flat arrays), so versions are
+# listed statically below. Pinning is desirable here anyway: the renderer's
+# output depends on the exact Chrome build.
+#
+# To add a version, check:
+#   https://googlechromelabs.github.io/chrome-for-testing/known-good-versions.json
+#
+# NOTE: this ships only the binary. Chrome needs system shared libraries
+# (libnss3, libgbm, libasound2, ...) that proto cannot install - see README.
+# Linux arm64 is NOT published by Chrome for Testing; linux64 only.
+name = "chrome-headless-shell"
+type = "cli"
+
+[resolve]
+versions = ["129.0.6668+89", "151.0.7922+34"]
+
+[resolve.aliases]
+stable = "151.0.7922+34"
+
+# The platform directory is folded into download-file because proto has no
+# {platform} token and download-url cannot be overridden per platform.
+[platform.linux]
+download-file = "linux64/chrome-headless-shell-linux64.zip"
+exe-path = "chrome-headless-shell-linux64/chrome-headless-shell"
+
+[platform.macos]
+download-file = "mac-{arch}/chrome-headless-shell-mac-{arch}.zip"
+exe-path = "chrome-headless-shell-mac-{arch}/chrome-headless-shell"
+
+[platform.windows]
+download-file = "win64/chrome-headless-shell-win64.zip"
+exe-path = "chrome-headless-shell-win64/chrome-headless-shell.exe"
+
+[install]
+download-url = "https://storage.googleapis.com/chrome-for-testing-public/{versionMajor}.{versionMinor}.{versionPatch}.{versionBuild}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x64"

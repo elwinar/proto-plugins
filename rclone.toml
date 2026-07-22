@@ -21,4 +21,5 @@ exe-path = "rclone-v{version}-linux-{arch}/rclone"
 download-url = "https://github.com/rclone/rclone/releases/download/v{version}/{download_file}"
 
 [install.arch]
+aarch64 = "arm64"
 x86_64 = "amd64"
