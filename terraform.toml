@@ -1,0 +1,36 @@
+# A TOML plugin for proto:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "terraform"
+type = "cli"
+
+[platform.linux]
+download-file = "terraform_{version}_linux_{arch}.zip"
+bin-path = "terraform"
+checksum-file = "terraform_{version}_SHA256SUMS"
+
+[platform.macos]
+download-file = "terraform_{version}_darwin_{arch}.zip"
+bin-path = "terraform"
+checksum-file = "terraform_{version}_SHA256SUMS"
+
+[platform.windows]
+download-file = "terraform_{version}_windows_{arch}.zip"
+bin-path = "terraform.exe"
+checksum-file = "terraform_{version}_SHA256SUMS"
+
+[install]
+download-url = "https://releases.hashicorp.com/terraform/{version}/{download_file}"
+checksum-url = "https://releases.hashicorp.com/terraform/{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+aarch64 = "arm64"
+x86 = "386"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/hashicorp/terraform"
+
+[detect]
+version-files = [".terraform-version"]

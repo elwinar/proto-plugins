@@ -1,0 +1,26 @@
+name = "stalwart-cli"
+type = "cli"
+
+[platform.linux]
+archive-prefix = "stalwart-cli-{arch}-unknown-linux-gnu"
+download-file = "stalwart-cli-{arch}-unknown-linux-gnu.tar.xz"
+checksum-file = "stalwart-cli-{arch}-unknown-linux-gnu.tar.xz.sha256"
+
+[platform.macos]
+archive-prefix = "stalwart-cli-{arch}-apple-darwin"
+download-file = "stalwart-cli-{arch}-apple-darwin.tar.xz"
+checksum-file = "stalwart-cli-{arch}-apple-darwin.tar.xz.sha256"
+
+[platform.windows]
+archive-prefix = "stalwart-cli-{arch}-pc-windows-msvc"
+download-file = "stalwart-cli-{arch}-pc-windows-msvc.zip"
+checksum-file = "stalwart-cli-{arch}-pc-windows-msvc.zip.sha256"
+
+[install]
+download-url = "https://github.com/stalwartlabs/cli/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/stalwartlabs/cli/releases/download/v{version}/{checksum_file}"
+unpack = true
+
+[resolve]
+git-url = "https://github.com/stalwartlabs/cli"
+git-tag-pattern = "^v(.*)$"

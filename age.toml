@@ -1,0 +1,33 @@
+name = "age"
+type = "cli"
+
+[platform.linux]
+archive-prefix = "age"
+download-file = "age-v{version}-linux-{arch}.tar.gz"
+
+[platform.macos]
+archive-prefix = "age"
+download-file = "age-v{version}-darwin-{arch}.tar.gz"
+
+[platform.windows]
+archive-prefix = "age"
+download-file = "age-v{version}-windows-{arch}.zip"
+
+[install]
+download-url = "https://github.com/FiloSottile/age/releases/download/v{version}/{download_file}"
+unpack = true
+
+[install.arch]
+x86_64 = "amd64"
+aarch64 = "arm64"
+
+[install.exes.age]
+exe-path = "age"
+primary = true
+
+[install.exes.age-keygen]
+exe-path = "age-keygen"
+
+[resolve]
+git-url = "https://github.com/FiloSottile/age"
+git-tag-pattern = "^v(.*)$"
