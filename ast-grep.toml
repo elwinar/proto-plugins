@@ -1,0 +1,25 @@
+# https://github.com/ast-grep/ast-grep
+name = "ast-grep"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/ast-grep/ast-grep"
+
+[platform.linux]
+download-file = "app-{arch}-unknown-linux-gnu.zip"
+
+[platform.macos]
+download-file = "app-{arch}-apple-darwin.zip"
+
+[platform.windows]
+download-file = "app-{arch}-pc-windows-msvc.zip"
+exe-path = "ast-grep.exe"
+
+[install]
+download-url = "https://github.com/ast-grep/ast-grep/releases/download/{version}/{download_file}"
+
+[install.arch]
+x86 = "i686"
+
+# The archive also ships an `sg` alias, left unlinked on purpose: it would
+# shadow the util-linux `sg` (setgid) command.
