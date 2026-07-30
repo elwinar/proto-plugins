@@ -1,0 +1,37 @@
+name = "nub"
+type = "cli"
+
+[platform.linux]
+archive-prefix = "bin"
+download-file = "nub-linux-{arch}.tar.gz"
+checksum-file = "nub-linux-{arch}.tar.gz.sha256"
+
+[platform.macos]
+archive-prefix = "bin"
+download-file = "nub-darwin-{arch}.tar.gz"
+checksum-file = "nub-darwin-{arch}.tar.gz.sha256"
+
+[platform.windows]
+archive-prefix = "bin"
+download-file = "nub-win32-{arch}.zip"
+checksum-file = "nub-win32-{arch}.zip.sha256"
+
+[install]
+download-url = "https://github.com/nubjs/nub/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/nubjs/nub/releases/download/v{version}/{checksum_file}"
+unpack = true
+
+[install.arch]
+x86_64 = "x64"
+aarch64 = "arm64"
+
+[install.exes.nub]
+exe-path = "nub"
+primary = true
+
+[install.exes.nubx]
+exe-path = "nubx"
+
+[resolve]
+git-url = "https://github.com/nubjs/nub"
+git-tag-pattern = "^v(.*)$"
