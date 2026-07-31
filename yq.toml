@@ -1,0 +1,36 @@
+# A TOML plugin for proto:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "yq"
+type = "cli"
+
+# Upstream ships a single `checksums` file per release, but it is a multi-column
+# table (one column per hash algorithm, ordered by `checksums_hashes_order`)
+# rather than a sha256sum file, so proto cannot verify against it.
+
+# The release archives unpack flat, with the binary named after the platform
+# (`yq_linux_amd64`, ...) alongside the man page, hence the explicit bin-path.
+
+[platform.linux]
+download-file = "yq_linux_{arch}.tar.gz"
+bin-path = "yq_linux_{arch}"
+
+[platform.macos]
+download-file = "yq_darwin_{arch}.tar.gz"
+bin-path = "yq_darwin_{arch}"
+
+[platform.windows]
+download-file = "yq_windows_{arch}.zip"
+bin-path = "yq_windows_{arch}.exe"
+
+[install]
+download-url = "https://github.com/mikefarah/yq/releases/download/v{version}/{download_file}"
+unpack = true
+
+[install.arch]
+aarch64 = "arm64"
+x86 = "386"
+x86_64 = "amd64"
+
+[resolve]
+git-url = "https://github.com/mikefarah/yq"
