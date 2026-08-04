@@ -1,0 +1,31 @@
+# https://github.com/wagoodman/dive
+name = "dive"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/wagoodman/dive"
+
+[platform.linux]
+download-file = "dive_{version}_linux_{arch}.tar.gz"
+checksum-file = "dive_{version}_checksums.txt"
+bin-path = "dive"
+
+[platform.macos]
+download-file = "dive_{version}_darwin_{arch}.tar.gz"
+checksum-file = "dive_{version}_checksums.txt"
+bin-path = "dive"
+
+[platform.windows]
+download-file = "dive_{version}_windows_{arch}.zip"
+checksum-file = "dive_{version}_checksums.txt"
+bin-path = "dive.exe"
+
+[install]
+download-url = "https://github.com/wagoodman/dive/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/wagoodman/dive/releases/download/v{version}/{checksum_file}"
+unpack = true
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
+powerpc64 = "ppc64le"
