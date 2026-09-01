@@ -1,0 +1,31 @@
+# https://github.com/x-motemen/ghq
+# No checksum config: the release ships a single `SHASUMS` asset containing
+# SHA-1 digests, which proto cannot verify (it expects SHA-256).
+name = "ghq"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/x-motemen/ghq"
+
+[platform.linux]
+archive-prefix = "ghq_linux_{arch}"
+download-file = "ghq_linux_{arch}.zip"
+exe-path = "ghq"
+
+[platform.macos]
+archive-prefix = "ghq_darwin_{arch}"
+download-file = "ghq_darwin_{arch}.zip"
+exe-path = "ghq"
+
+[platform.windows]
+archive-prefix = "ghq_windows_{arch}"
+download-file = "ghq_windows_{arch}.zip"
+exe-path = "ghq.exe"
+
+[install]
+download-url = "https://github.com/x-motemen/ghq/releases/download/v{version}/{download_file}"
+unpack = true
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
