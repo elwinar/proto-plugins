@@ -1,0 +1,30 @@
+# https://github.com/scaleway/scaleway-cli
+# Named `scw` after the command itself, not the repo: assets ship as bare
+# `scaleway-cli_{version}_{os}_{arch}` binaries but everyone types `scw`.
+name = "scw"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/scaleway/scaleway-cli"
+
+[platform.linux]
+download-file = "scaleway-cli_{version}_linux_{arch}"
+checksum-file = "SHA256SUMS"
+
+[platform.macos]
+download-file = "scaleway-cli_{version}_darwin_{arch}"
+checksum-file = "SHA256SUMS"
+
+[platform.windows]
+download-file = "scaleway-cli_{version}_windows_{arch}.exe"
+exe-path = "scaleway-cli_{version}_windows_{arch}.exe"
+checksum-file = "SHA256SUMS"
+
+[install]
+download-url = "https://github.com/scaleway/scaleway-cli/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/scaleway/scaleway-cli/releases/download/v{version}/{checksum_file}"
+unpack = false
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "amd64"
