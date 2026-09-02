@@ -1,0 +1,33 @@
+# https://github.com/anomalyco/opencode
+# Formerly `sst/opencode`; the old URL still redirects.
+# No checksum config: the CLI assets ship without one (the `latest*.yml` /
+# `latest.json` assets are electron-updater manifests for the desktop app).
+name = "opencode"
+type = "cli"
+
+[resolve]
+git-url = "https://github.com/anomalyco/opencode"
+
+[platform.linux]
+download-file = "opencode-linux-{arch}{libc}.tar.gz"
+exe-path = "opencode"
+
+[platform.macos]
+download-file = "opencode-darwin-{arch}.zip"
+exe-path = "opencode"
+
+[platform.windows]
+download-file = "opencode-windows-{arch}.zip"
+exe-path = "opencode.exe"
+
+[install]
+download-url = "https://github.com/anomalyco/opencode/releases/download/v{version}/{download_file}"
+unpack = true
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x64"
+
+[install.libc]
+gnu = ""
+musl = "-musl"
