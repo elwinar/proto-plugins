@@ -1,0 +1,32 @@
+# Vendored from https://github.com/moonrepo/community-plugins/blob/master/tools/act.toml
+# https://github.com/nektos/act
+name = "act"
+type = "cli"
+
+[plugin]
+description = "Run your GitHub Actions locally."
+repository-url = "https://github.com/nektos/act"
+
+[resolve]
+git-url = "https://github.com/nektos/act"
+
+[platform.linux]
+download-file = "act_Linux_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+
+[platform.macos]
+download-file = "act_Darwin_{arch}.tar.gz"
+checksum-file = "checksums.txt"
+
+[platform.windows]
+download-file = "act_Windows_{arch}.zip"
+checksum-file = "checksums.txt"
+
+[install]
+download-url = "https://github.com/nektos/act/releases/download/v{version}/{download_file}"
+checksum-url = "https://github.com/nektos/act/releases/download/v{version}/{checksum_file}"
+
+[install.arch]
+arm = "armv6"
+aarch64 = "arm64"
+x86 = "i386"
